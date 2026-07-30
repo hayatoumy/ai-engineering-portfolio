@@ -1,0 +1,121 @@
+task,temperature,replicate,text,normalized,correct,input_tokens,output_tokens,stop_reason,stop_sequence,msg_id,model,cost_usd
+closed,1.0,17,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnih8AeGVmfC5e7P78e,claude-haiku-4-5-20251001,0.0
+open,1.0,3,"Drink bold, live bold, ditch the plastic—one bottle for life.","drink bold, live bold, ditch the plastic—one bottle for life",,35,20,end_turn,,msg_011CdWnim8X3UjQC75rA1zre,claude-haiku-4-5-20251001,0.0
+open,0.5,19,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWniqVTV4aWtoycaKACT,claude-haiku-4-5-20251001,0.0
+closed,0.0,3,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnivBEnfwse6iv7tx3K,claude-haiku-4-5-20251001,0.0
+open,1.0,11,"Hydrate with purpose—one bottle, countless journeys, zero waste.","hydrate with purpose—one bottle, countless journeys, zero waste",,35,19,end_turn,,msg_011CdWnizFZ4TrjB2m9tYzKA,claude-haiku-4-5-20251001,0.0
+closed,1.0,19,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnj3dTJzpM7M4fZg13M,claude-haiku-4-5-20251001,0.0
+open,0.0,13,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnj6aZDnHiRmexNef1K,claude-haiku-4-5-20251001,0.0
+closed,0.5,2,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnjCNZwCa4bmMp9Cy2C,claude-haiku-4-5-20251001,0.0
+closed,0.5,10,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnjJdMJTp5GsrznLkbs,claude-haiku-4-5-20251001,0.0
+closed,0.5,5,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnjNBfZBkaCnAtnQEZy,claude-haiku-4-5-20251001,0.0
+closed,1.0,7,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnjS6owPzzNDbpyFCwz,claude-haiku-4-5-20251001,0.0
+open,0.0,9,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnjVTyF2ggL6dNAhrda,claude-haiku-4-5-20251001,0.0
+closed,0.5,3,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnjb3aJU6oZRENAi2dr,claude-haiku-4-5-20251001,0.0
+open,0.0,7,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnje6P2QZ2kkzWsz2N2,claude-haiku-4-5-20251001,0.0
+open,0.0,15,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnjhX1V1wDgnXrKQKoa,claude-haiku-4-5-20251001,0.0
+closed,0.0,16,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnjnE2ku3BnAWGzU7CG,claude-haiku-4-5-20251001,0.0
+open,0.5,5,"Stay hydrated, stay sustainable—one refill at a time.","stay hydrated, stay sustainable—one refill at a time",,35,17,end_turn,,msg_011CdWnjptWv67pWZ1r22FiG,claude-haiku-4-5-20251001,0.0
+closed,0.5,9,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnjuMeeSMQjUmGBLgT3,claude-haiku-4-5-20251001,0.0
+closed,0.0,2,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnjxzvXznNZDyQCpYE1,claude-haiku-4-5-20251001,0.0
+open,0.0,16,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnk3WY9czMe9J4M6zTx,claude-haiku-4-5-20251001,0.0
+closed,0.0,8,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnk6xf2V6Cj3tbH1LJJ,claude-haiku-4-5-20251001,0.0
+open,1.0,7,"Stay hydrated, stay sustainable—your perfect bottle for every adventure, every day.","stay hydrated, stay sustainable—your perfect bottle for every adventure, every day",,35,20,end_turn,,msg_011CdWnkBierAybnxmgG35ZL,claude-haiku-4-5-20251001,0.0
+closed,1.0,3,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnkFQA4S4TVgUjR1QZ2,claude-haiku-4-5-20251001,0.0
+open,0.5,4,Hydrate sustainably—one refill at a time.,hydrate sustainably—one refill at a time,,35,16,end_turn,,msg_011CdWnkJectP3J4J1ttB33s,claude-haiku-4-5-20251001,0.0
+open,0.5,18,"Stay hydrated, save the planet—one refill at a time.","stay hydrated, save the planet—one refill at a time",,35,18,end_turn,,msg_011CdWnkNAD8WPQrq2CWYGzV,claude-haiku-4-5-20251001,0.0
+closed,1.0,4,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnkSBJRZ91k9TAb2wKP,claude-haiku-4-5-20251001,0.0
+closed,1.0,6,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnkVMJVuFTRM4btdMMN,claude-haiku-4-5-20251001,0.0
+open,1.0,15,"""Hydrate without waste—one bottle, countless adventures.""","hydrate without waste—one bottle, countless adventures",,35,16,end_turn,,msg_011CdWnkaJTCanGdAdSp59mh,claude-haiku-4-5-20251001,0.0
+open,0.5,0,"Hydrate endlessly, waste nothing—your perfect companion for every adventure, every day.","hydrate endlessly, waste nothing—your perfect companion for every adventure, every day",,35,22,end_turn,,msg_011CdWnkfE8EtPqd7DAKQiP1,claude-haiku-4-5-20251001,0.0
+closed,0.5,17,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnkmcMLH6ow64sGTagh,claude-haiku-4-5-20251001,0.0
+closed,0.0,10,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnkpz1G5wdPjAxAxncY,claude-haiku-4-5-20251001,0.0
+closed,0.5,4,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnku1M22hKkVE9WKNQ3,claude-haiku-4-5-20251001,0.0
+closed,1.0,8,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnkwp26f1T6v4o6Spcq,claude-haiku-4-5-20251001,0.0
+closed,1.0,10,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnkzymX1VdqdBFpdnuH,claude-haiku-4-5-20251001,0.0
+open,1.0,4,"Hydrate endlessly, sustainably—your perfect pour, forever.","hydrate endlessly, sustainably—your perfect pour, forever",,35,18,end_turn,,msg_011CdWnm4EDzZmiFhsEz1q1o,claude-haiku-4-5-20251001,0.0
+open,0.5,13,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnm9wXDkmgbYxSzoMn5,claude-haiku-4-5-20251001,0.0
+closed,0.0,13,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnmDvdtFLXxoepyMEuN,claude-haiku-4-5-20251001,0.0
+closed,1.0,12,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnmJx1RnYZMAoSRSeBu,claude-haiku-4-5-20251001,0.0
+closed,0.5,1,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnmN3ncR5kAjXWeUZ53,claude-haiku-4-5-20251001,0.0
+open,1.0,12,"Hydrate with purpose—one bottle, countless adventures, zero waste.","hydrate with purpose—one bottle, countless adventures, zero waste",,35,18,end_turn,,msg_011CdWnmRMDqDn4UVCp5xbDy,claude-haiku-4-5-20251001,0.0
+open,0.0,12,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnmVbi4Q9GSzERvV5DW,claude-haiku-4-5-20251001,0.0
+open,0.5,11,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnmZCFkc8RnsJj885d1,claude-haiku-4-5-20251001,0.0
+closed,0.5,15,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnmePYizSk9YbA1Jurh,claude-haiku-4-5-20251001,0.0
+closed,0.0,19,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnmhe1UBNYqBrDquqHD,claude-haiku-4-5-20251001,0.0
+closed,0.0,6,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnmm49DfCh1mszmagTx,claude-haiku-4-5-20251001,0.0
+open,1.0,2,"Hydrate endlessly, impact nothing—your bottle for life.","hydrate endlessly, impact nothing—your bottle for life",,35,17,end_turn,,msg_011CdWnmomrXNJcuW9K5ZHpA,claude-haiku-4-5-20251001,0.0
+open,0.5,15,"Stay hydrated, stay sustainable—one refill at a time.","stay hydrated, stay sustainable—one refill at a time",,35,17,end_turn,,msg_011CdWnmsKRVLtTz1wR6VxSR,claude-haiku-4-5-20251001,0.0
+closed,0.5,0,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnmxCcbXtB2oW4dZvAK,claude-haiku-4-5-20251001,0.0
+open,1.0,18,Quench your thirst without quenching the planet—one refill at a time.,quench your thirst without quenching the planet—one refill at a time,,35,23,end_turn,,msg_011CdWnmzxZG4vQvUHgmzF79,claude-haiku-4-5-20251001,0.0
+open,1.0,14,"Stay hydrated, stay sustainable—one refill at a time.","stay hydrated, stay sustainable—one refill at a time",,35,17,end_turn,,msg_011CdWnn4RR7QDDxgqDiPJ4K,claude-haiku-4-5-20251001,0.0
+closed,0.5,8,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnn7hrofTNZ66oPQvME,claude-haiku-4-5-20251001,0.0
+closed,0.5,14,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnnAFu3qJvi13n9DHCd,claude-haiku-4-5-20251001,0.0
+closed,1.0,14,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnnCwP88Csb6Ma8QEdj,claude-haiku-4-5-20251001,0.0
+open,0.5,8,"Hydrate sustainably—one refill at a time, forever.","hydrate sustainably—one refill at a time, forever",,35,18,end_turn,,msg_011CdWnnFsjuBmAAfMF7795k,claude-haiku-4-5-20251001,0.0
+open,0.5,14,"Hydrate smart, reduce waste, stay refreshed—one refill at a time.","hydrate smart, reduce waste, stay refreshed—one refill at a time",,35,22,end_turn,,msg_011CdWnnLSLCbhdQjaztJDRo,claude-haiku-4-5-20251001,0.0
+closed,0.0,15,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnnSg8M5nkTzU7Cmc6V,claude-haiku-4-5-20251001,0.0
+closed,0.0,14,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnnVLrim5xFaFfE2XeT,claude-haiku-4-5-20251001,0.0
+open,1.0,9,"Stay hydrated, save the planet, and keep your conscience as clean as your bottle.","stay hydrated, save the planet, and keep your conscience as clean as your bottle",,35,21,end_turn,,msg_011CdWnnYWMnmeHfV7HVeoCY,claude-haiku-4-5-20251001,0.0
+closed,1.0,18,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnncSW5qsWgyficc2ZQ,claude-haiku-4-5-20251001,0.0
+open,0.5,3,Hydrate sustainably—one refill at a time.,hydrate sustainably—one refill at a time,,35,16,end_turn,,msg_011CdWnnh5JhD1sn4YvKEjXz,claude-haiku-4-5-20251001,0.0
+closed,0.0,4,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnnoiAHyRuwfwhRW2eJ,claude-haiku-4-5-20251001,0.0
+open,0.5,1,"Stay hydrated, stay sustainable—one refill at a time.","stay hydrated, stay sustainable—one refill at a time",,35,17,end_turn,,msg_011CdWnnrmi4CaJRxGEsegZx,claude-haiku-4-5-20251001,0.0
+open,0.5,2,"Hydrate boldly, waste nothing—your perfect companion for every adventure, every single day.","hydrate boldly, waste nothing—your perfect companion for every adventure, every single day",,35,23,end_turn,,msg_011CdWnnv6dwCbaXpnHCEL4s,claude-haiku-4-5-20251001,0.0
+closed,1.0,1,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWno2W71rXx9aoSUAyep,claude-haiku-4-5-20251001,0.0
+closed,0.5,11,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWno5RxqDMPDWwwqRRCG,claude-haiku-4-5-20251001,0.0
+open,0.5,6,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWno8CekoYPityunQVNj,claude-haiku-4-5-20251001,0.0
+open,0.0,3,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnoCvfGFUEC1QVuJkfp,claude-haiku-4-5-20251001,0.0
+closed,0.0,0,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnoHDdZSANvxbnuX2wz,claude-haiku-4-5-20251001,0.0
+open,1.0,10,"""Hydrate Fearlessly—One Bottle, Endless Refills, Zero Waste.""","hydrate fearlessly—one bottle, endless refills, zero waste",,35,25,end_turn,,msg_011CdWnoKsNWaBxnVYBduL9g,claude-haiku-4-5-20251001,0.0
+closed,0.0,11,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnoQ4tcSeB6gbbHJ2SF,claude-haiku-4-5-20251001,0.0
+closed,0.0,1,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnogKgnxpwptLZ1eFVz,claude-haiku-4-5-20251001,0.0
+open,0.5,12,"Stay hydrated, stay sustainable—one refill at a time.","stay hydrated, stay sustainable—one refill at a time",,35,17,end_turn,,msg_011CdWnoj971tJtUAfe7Uxtj,claude-haiku-4-5-20251001,0.0
+closed,0.0,7,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnonjQ6e8NKEPVUZXde,claude-haiku-4-5-20251001,0.0
+open,1.0,16,"""Hydrate with purpose—one refill at a time.""",hydrate with purpose—one refill at a time,,35,17,end_turn,,msg_011CdWnoqkU8ztD9v7q7WuUv,claude-haiku-4-5-20251001,0.0
+open,0.0,6,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnoweRqZ9jwdqSEXn3V,claude-haiku-4-5-20251001,0.0
+closed,1.0,16,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnp1GxeHjGLq2N4do2Y,claude-haiku-4-5-20251001,0.0
+open,1.0,19,"""Hydrate smarter, not harder—one bottle, endless refills, zero waste.""","hydrate smarter, not harder—one bottle, endless refills, zero waste",,35,23,end_turn,,msg_011CdWnp3yvs6zTfjVJbRGoB,claude-haiku-4-5-20251001,0.0
+open,0.0,10,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnp9a2dJVLrNs7yUxYj,claude-haiku-4-5-20251001,0.0
+closed,0.5,6,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnpDZeAg7JTHCjx9MYm,claude-haiku-4-5-20251001,0.0
+open,0.0,18,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnpGWVdK3KikFy8kKUi,claude-haiku-4-5-20251001,0.0
+closed,1.0,0,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnpKki6M5GCYwFHmKxz,claude-haiku-4-5-20251001,0.0
+closed,1.0,15,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnpNHGFHAmhXCmxYjSr,claude-haiku-4-5-20251001,0.0
+open,1.0,5,"Hydrate endlessly, waste nothing—your perfect companion for every adventure awaits.","hydrate endlessly, waste nothing—your perfect companion for every adventure awaits",,35,21,end_turn,,msg_011CdWnpS2VDpHqXxY4VNyQK,claude-haiku-4-5-20251001,0.0
+open,0.5,9,"Hydrate smart, live sustainably—one refill at a time.","hydrate smart, live sustainably—one refill at a time",,35,19,end_turn,,msg_011CdWnpWDkYM63xne7fusjd,claude-haiku-4-5-20251001,0.0
+open,0.0,11,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnpZpHzkhmMPBrx8jML,claude-haiku-4-5-20251001,0.0
+open,0.0,0,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnpdLdcxjZQg1eLmX19,claude-haiku-4-5-20251001,0.0
+closed,1.0,2,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnpguSPAhPP8r8KE7n4,claude-haiku-4-5-20251001,0.0
+open,0.5,7,Hydrate sustainably—one refill at a time.,hydrate sustainably—one refill at a time,,35,16,end_turn,,msg_011CdWnpkSWqNFWw92q2G5fz,claude-haiku-4-5-20251001,0.0
+closed,0.0,9,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnptBMBTjju2bnAQKJU,claude-haiku-4-5-20251001,0.0
+open,1.0,17,"Sip smart, live sustainably—your perfect hydration companion for every adventure, every single day.","sip smart, live sustainably—your perfect hydration companion for every adventure, every single day",,35,25,end_turn,,msg_011CdWnq2tisPvVGfnyVaFCD,claude-haiku-4-5-20251001,0.0
+closed,0.5,19,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnqWLit6XYwaz9pAmUx,claude-haiku-4-5-20251001,0.0
+closed,0.0,18,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnqZ9PpSvo5pzDbsGiv,claude-haiku-4-5-20251001,0.0
+open,0.0,17,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnqcuN1yZWscBNC2wWe,claude-haiku-4-5-20251001,0.0
+open,0.5,10,Hydrate sustainably—one refill at a time.,hydrate sustainably—one refill at a time,,35,16,end_turn,,msg_011CdWnqgWejN7X9dDqDdSWP,claude-haiku-4-5-20251001,0.0
+open,0.0,8,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnqkJMfA8nXjym2Kyw2,claude-haiku-4-5-20251001,0.0
+closed,0.5,12,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnqpjG7zJwV4phPhK7Z,claude-haiku-4-5-20251001,0.0
+open,0.0,19,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnquQYqQW1Z7PrziWT6,claude-haiku-4-5-20251001,0.0
+closed,0.0,12,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnqyLSB7GbWBCPMpdD5,claude-haiku-4-5-20251001,0.0
+open,0.5,16,Hydrate responsibly—one refill at a time.,hydrate responsibly—one refill at a time,,35,16,end_turn,,msg_011CdWnr3oa59Kw4jY7rAyoA,claude-haiku-4-5-20251001,0.0
+open,1.0,1,Hydrate with purpose—choose stainless steel that lasts a lifetime.,hydrate with purpose—choose stainless steel that lasts a lifetime,,35,20,end_turn,,msg_011CdWnr771TQkztQZfKeRr6,claude-haiku-4-5-20251001,0.0
+closed,0.5,16,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnrD6fnA6pyvyARWsa4,claude-haiku-4-5-20251001,0.0
+closed,0.0,17,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnrMD55FkysKdiUBvo8,claude-haiku-4-5-20251001,0.0
+open,0.0,4,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnrQs6Sva9W4wFHUVeo,claude-haiku-4-5-20251001,0.0
+closed,0.5,7,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnrUiX8YFhfkW3Qzogu,claude-haiku-4-5-20251001,0.0
+open,0.0,14,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnrXaAb6WQMTjy8Nxcr,claude-haiku-4-5-20251001,0.0
+closed,1.0,5,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnrctQHeh2a51hvS115,claude-haiku-4-5-20251001,0.0
+open,0.0,1,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWnrfzgFEDjMtcuk9bcC,claude-haiku-4-5-20251001,0.0
+closed,0.5,18,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnrj8wMh5AVQ4qGbam4,claude-haiku-4-5-20251001,0.0
+open,1.0,6,Quench your thirst guilt-free—one refill at a time.,quench your thirst guilt-free—one refill at a time,,35,20,end_turn,,msg_011CdWnroNgTN2MQDKV61mc2,claude-haiku-4-5-20251001,0.0
+open,1.0,0,"Hydrate endlessly, waste nothing—choose the bottle that's built to last a lifetime.","hydrate endlessly, waste nothing—choose the bottle that's built to last a lifetime",,35,23,end_turn,,msg_011CdWnrtZEBdhahC9cA68M1,claude-haiku-4-5-20251001,0.0
+closed,1.0,11,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnrxLByAvsFWkdhqYMT,claude-haiku-4-5-20251001,0.0
+open,0.0,2,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWns18rcymRpNPR4Bj5X,claude-haiku-4-5-20251001,0.0
+open,0.0,5,"Hydrate with purpose—one bottle, endless refills, zero waste.","hydrate with purpose—one bottle, endless refills, zero waste",,35,19,end_turn,,msg_011CdWns5GtwshYQG9xV8gi7,claude-haiku-4-5-20251001,0.0
+closed,0.5,13,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWns947CqvtYFhWjTBPa,claude-haiku-4-5-20251001,0.0
+closed,0.0,5,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnsEZFrbuUufhjRPU56,claude-haiku-4-5-20251001,0.0
+closed,1.0,13,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnsHyP95ptXfTDmdd6Y,claude-haiku-4-5-20251001,0.0
+open,1.0,13,"Hydrate sustainably—one refill at a time, forever.","hydrate sustainably—one refill at a time, forever",,35,18,end_turn,,msg_011CdWnsMvmJWiypHcLwSu3g,claude-haiku-4-5-20251001,0.0
+open,0.5,17,"Hydrate with purpose—one bottle, countless refills, zero waste.","hydrate with purpose—one bottle, countless refills, zero waste",,35,19,end_turn,,msg_011CdWnsRtdcoT4o6ecr69Kx,claude-haiku-4-5-20251001,0.0
+closed,1.0,9,1284.50,1284.50,True,117,8,end_turn,,msg_011CdWnsVBaAYS8vqRMmuX5F,claude-haiku-4-5-20251001,0.0
+open,1.0,8,Hydrate responsibly—one refill at a time.,hydrate responsibly—one refill at a time,,35,16,end_turn,,msg_011CdWnsbnCRMyZr1MMoiSP8,claude-haiku-4-5-20251001,0.0

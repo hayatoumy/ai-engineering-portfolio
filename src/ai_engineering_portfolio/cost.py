@@ -1,4 +1,5 @@
 # cost.py
+import os 
 import csv, datetime, threading
 import anthropic
 from ai_engineering_portfolio.models import PRICES
@@ -6,6 +7,13 @@ from ai_engineering_portfolio.models import PRICES
 client = anthropic.Anthropic()   # reads ANTHROPIC_API_KEY from env
 _lock = threading.Lock()
 last_call_cost = 0.0
+
+new_file = not os.path.exists("spend.csv")
+with _lock, open("spend.csv", "a", newline="") as f:
+    w = csv.writer(f)
+    if new_file:
+        w.writerow(["ts","model","in_tok","cache_read","out_tok","cost"])
+    w.writerow([...])
 
 def tracked_create(**kwargs):
     """Drop-in replacement for client.messages.create that logs spend."""
