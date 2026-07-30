@@ -38,24 +38,109 @@ def tracked_create(**kwargs):
         ])
     return resp
 
-# Loop kill-switch -- call this into every agent loop you ever write
+
+"""
+Key change in BudgetGuard: the cost is PASSED IN, not read from a module global. The old
+version worked only because BudgetGuard happened to live in the same file as
+`last_call_cost`. That is an invisible dependency: move the class to another
+module and it silently reads a stale 0.0 forever, with no error.
+"""
+
+class BudgetOverrun(RuntimeError):
+    """Raised when a loop exceeds its step or spend cap.
+
+    A dedicated exception type so callers can catch THIS without also
+    swallowing unrelated RuntimeErrors from the API client.
+    """
+
+
 class BudgetGuard:
     """Kill-switch for agent loops — caps steps and spend.
 
-    To use in every loop: 
-    guard = BudgetGuard()
-    while not done:
-        resp = tracked_create(...)
-        guard.check()
-    """
-    def __init__(self, max_steps=15, max_spend=0.50):
-        self.max_steps, self.max_spend = max_steps, max_spend
-        self.steps, self.spent = 0, 0.0
+    Usage (explicit, preferred):
 
-    def check(self):
-        self.steps += 1
-        self.spent += last_call_cost
-        if self.steps > self.max_steps:
-            raise RuntimeError(f"step limit hit: {self.steps}")
-        if self.spent > self.max_spend:
-            raise RuntimeError(f"budget exceeded: ${self.spent:.3f}")
+        from cost import tracked_create, BudgetGuard
+        import cost
+
+        guard = BudgetGuard(max_steps=15, max_spend=0.50)
+        while not done:
+            guard.precheck(estimated=0.05)     # optional: stop BEFORE spending
+            resp = tracked_create(...)
+            guard.record(cost.last_call_cost)  # explicit. no hidden globals.
+
+    Raises BudgetOverrun on breach. Let it propagate — the whole point is to
+    halt the loop, so do not wrap `record()` in a bare `except`.
+    """
+
+    def __init__(self, max_steps: int = 15, max_spend: float = 0.50):
+        if max_steps < 1 or max_spend <= 0:
+            raise ValueError("max_steps must be >= 1 and max_spend > 0")
+        self.max_steps = max_steps
+        self.max_spend = max_spend
+        self.steps = 0
+        self.spent = 0.0
+        self._lock = threading.Lock()
+
+    def record(self, cost_usd: float) -> None:
+        """Register one completed call. Raises BudgetOverrun if a cap is breached.
+
+        Pass the cost explicitly. `cost.last_call_cost` is fine as the source in
+        a sequential loop, but under concurrency it is a shared global that
+        another thread may have already overwritten — so read it once, right
+        after your call, and hand the value to this method.
+        """
+        if cost_usd < 0:
+            raise ValueError(f"negative cost: {cost_usd}")
+
+        with self._lock:
+            self.steps += 1
+            self.spent += cost_usd
+            steps, spent = self.steps, self.spent
+
+        # Raise outside the lock. NOT because the exception would leak the lock
+        # -- `with` calls __exit__ on exception propagation, so it releases
+        # either way. Two lesser reasons: (1) f-string formatting is real work
+        # and shouldn't happen while holding a lock, (2) `steps`/`spent` are a
+        # consistent snapshot, so the number in the message is the one that
+        # actually breached the cap rather than whatever another thread drifted
+        # it to. Hygiene, not correctness.
+        if steps > self.max_steps:
+            raise BudgetOverrun(
+                f"step limit hit: {steps} > {self.max_steps} "
+                f"(spent ${spent:.4f})"
+            )
+        if spent > self.max_spend:
+            raise BudgetOverrun(
+                f"budget exceeded: ${spent:.4f} > ${self.max_spend:.2f} "
+                f"at step {steps}"
+            )
+
+    def precheck(self, estimated: float = 0.0) -> None:
+        """Raise BEFORE making a call that would breach the cap.
+
+        `record()` is reactive: you have already spent the money by the time it
+        fires, so you always overshoot by one call. At Haiku prices that is
+        noise. With a large Opus context it is not. Estimate the next call with
+        client.messages.count_tokens (free) and gate on it.
+        """
+        with self._lock:
+            steps, spent = self.steps, self.spent
+
+        if steps + 1 > self.max_steps:
+            raise BudgetOverrun(f"next call would exceed step limit {self.max_steps}")
+        if spent + estimated > self.max_spend:
+            raise BudgetOverrun(
+                f"next call (~${estimated:.4f}) would exceed budget: "
+                f"${spent:.4f} + ${estimated:.4f} > ${self.max_spend:.2f}"
+            )
+
+    @property
+    def remaining(self) -> float:
+        """Dollars left before the cap. Useful for logging and for deciding
+        whether to escalate a call to a more expensive model."""
+        with self._lock:
+            return max(0.0, self.max_spend - self.spent)
+
+    def __repr__(self) -> str:
+        return (f"BudgetGuard(steps={self.steps}/{self.max_steps}, "
+                f"spent=${self.spent:.4f}/${self.max_spend:.2f})")
