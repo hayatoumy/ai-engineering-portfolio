@@ -1,6 +1,6 @@
 # hello.py
-from src.ai_engineering_portfolio.cost import tracked_create
-from src.ai_engineering_portfolio.models import HAIKU
+from ai_engineering_portfolio.cost import tracked_create
+from ai_engineering_portfolio.models import HAIKU
 
 r = tracked_create(
     model=HAIKU,

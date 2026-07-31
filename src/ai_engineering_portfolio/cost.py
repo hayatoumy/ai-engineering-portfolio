@@ -1,19 +1,19 @@
 # cost.py
-import os 
 import csv, datetime, threading
 import anthropic
 from ai_engineering_portfolio.models import PRICES
+from ai_engineering_portfolio.paths import SPEND_CSV
 
 client = anthropic.Anthropic()   # reads ANTHROPIC_API_KEY from env
 _lock = threading.Lock()
 last_call_cost = 0.0
 
-new_file = not os.path.exists("spend.csv")
-with _lock, open("spend.csv", "a", newline="") as f:
-    w = csv.writer(f)
-    if new_file:
-        w.writerow(["ts","model","in_tok","cache_read","out_tok","cost"])
-    w.writerow([...])
+# new_file = not os.path.exists("spend.csv")
+# with _lock, open("spend.csv", "a", newline="") as f:
+#     w = csv.writer(f)
+#     if new_file:
+#         w.writerow(["ts","model","in_tok","cache_read","out_tok","cost"])
+#     w.writerow([...])      # writes a literal "Ellipsis" row
 
 def tracked_create(**kwargs):
     """Drop-in replacement for client.messages.create that logs spend."""
@@ -29,13 +29,26 @@ def tracked_create(**kwargs):
         + u.output_tokens / 1e6 * p_out
     )
     last_call_cost = cost
-    with _lock, open("spend.csv", "a", newline="") as f:
-        csv.writer(f).writerow([
+    # with _lock, open("spend.csv", "a", newline="") as f:
+    #     csv.writer(f).writerow([
+    #         datetime.datetime.now().isoformat(), model,
+    #         u.input_tokens,
+    #         getattr(u, "cache_read_input_tokens", 0),
+    #         u.output_tokens, round(cost, 6),
+    #     ])
+
+    new_file = not SPEND_CSV.exists()
+    with _lock, open(SPEND_CSV, "a", newline="") as f:
+        w = csv.writer(f)
+        if new_file:
+            w.writerow(["ts","model","in_tok","cache_read","out_tok","cost"])
+        w.writerow([
             datetime.datetime.now().isoformat(), model,
             u.input_tokens,
             getattr(u, "cache_read_input_tokens", 0),
             u.output_tokens, round(cost, 6),
         ])
+
     return resp
 
 
@@ -59,8 +72,7 @@ class BudgetGuard:
 
     Usage (explicit, preferred):
 
-        from cost import tracked_create, BudgetGuard
-        import cost
+        from  ai_engineering_portfolio.cost import tracked_create, BudgetGuard
 
         guard = BudgetGuard(max_steps=15, max_spend=0.50)
         while not done:

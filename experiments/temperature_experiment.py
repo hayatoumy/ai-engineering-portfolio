@@ -19,8 +19,8 @@ import re
 import sys
 import time
 from dataclasses import dataclass, asdict
-
 import anthropic
+from ai_engineering_portfolio.paths import TEMP_EXPERIMENT_CSV
 
 # Match your Day 0 layout. If you get ImportError, you're running from the wrong
 # directory -- cd into src/ai_engineering_portfolio/ or adjust these imports.
@@ -43,7 +43,7 @@ TEMPERATURES = [0.0, 0.5, 1.0]
 SEED = 0                  # seeds run ORDER only. It does not seed the model.
 BUDGET_USD = 0.25         # hard stop; this experiment should cost ~2 cents
 
-OUTFILE = "temp_experiment.csv"
+OUTFILE = TEMP_EXPERIMENT_CSV
 
 
 # --- Task A: closed. One correct answer. Scoreable with ==. -----------------

@@ -7,9 +7,9 @@ Reads temp_experiment.csv and answers the four pre-registered questions.
 """
 
 from __future__ import annotations
-
 import itertools
 import pandas as pd
+from ai_engineering_portfolio.paths import TEMP_EXPERIMENT_CSV
 
 
 def jaccard(a: str, b: str) -> float:
@@ -30,7 +30,7 @@ def mean_pairwise_similarity(texts: list[str]) -> float:
 
 
 def main() -> None:
-    df = pd.read_csv("temp_experiment.csv")
+    df = pd.read_csv(TEMP_EXPERIMENT_CSV)
 
     # --- Q1 + Q3: dispersion -------------------------------------------------
     disp = (

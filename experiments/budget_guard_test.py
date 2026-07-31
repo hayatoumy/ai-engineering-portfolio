@@ -2,7 +2,7 @@
 Tests for BudgetGuard.
 
     uv add --dev pytest
-    uv run pytest test_budget_guard.py -v
+    uv run pytest budget_guard_test.py -v
 
 Why this file exists: a safety mechanism you have never seen fire is not a
 safety mechanism. Every one of these tests asserts that the guard STOPS you.
@@ -13,7 +13,7 @@ import threading
 
 import pytest
 
-from ai_engineering_portfolio.cost import BudgetGuard, BudgetOverrun   # -> `from cost import ...`
+from ai_engineering_portfolio.cost import BudgetGuard, BudgetOverrun   # -> `from ai_engineering_portfolio.cost ...`
 
 
 # --- the tests that matter: does it actually stop? -------------------------
