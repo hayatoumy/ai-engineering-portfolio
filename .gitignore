@@ -77,6 +77,7 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+.ipynb_checkpoints/
 
 # IPython
 profile_default/
@@ -147,15 +148,35 @@ activemq-data/
 # SageMath parsed files
 *.sage.py
 
-# Environments
+# Environments and Secrets 
 .env
+.env.*
 .envrc
 .venv
 env/
 venv/
+.venv/
 ENV/
 env.bak/
 venv.bak/
+*.key
+credentials.json
+
+# Python 
+__pycache__/
+*.py[cod]
+
+# Data & models (keep repos small)
+data/ 
+*.db
+*.sqlite3
+models/
+*.gguf
+*.safetensors
+
+# OS / editor 
+.DS_Store
+.vscode/settings.json
 
 # Spyder project settings
 .spyderproject
@@ -216,6 +237,3 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
-
-# Spend/Cost data
-spend.csv
