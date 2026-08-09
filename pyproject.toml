@@ -10,3 +10,10 @@ dependencies = [
     "python-dotenv",
     "ipykernel",
 ]
+
+[tool.uv.workspace]
+members = ["packages/*", "projects/*"]
+
+[tool.uv]
+package = false # the repo root itself isn't an installable package, it's a uv workspace
+link-mode = "copy" # developing on a remote compute, uv preferred hardlinking isn't allowed, uv has to copy, making installs a bit slower, but that's it.
