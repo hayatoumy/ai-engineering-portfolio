@@ -4,7 +4,8 @@ Small, well-tested Python utilities for building LLM applications.
 
 ## Metrics
 
-- 16 tests, **XX% coverage** across 4 text utilities
+- 16 tests, **100% coverage** across 4 text utilities. 
+    - Report generated with `uv run --package llmkit python -m pytest --cov=llmkit --cov-report=term-missing` 
 - Zero runtime dependencies
 
 ## Install

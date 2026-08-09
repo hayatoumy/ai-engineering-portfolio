@@ -26,6 +26,9 @@ def test_truncate_raises_on_bad_max():
     with pytest.raises(ValueError):
         truncate("anything", 0) 
 
+def test_truncate_suffix_longer_than_max(): #when max_chars is smaller than the suffix, return a clipped suffix
+    assert truncate("hello", 2) == ".."
+
 ## --- normalize_whitespace() tests ---
 def test_normalize_collapses_and_strips(): # happy path. general case.
     assert normalize_whitespace("a\n\n b\t\tc ") == "a b c"
