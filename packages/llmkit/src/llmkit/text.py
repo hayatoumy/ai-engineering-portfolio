@@ -29,6 +29,10 @@ def truncate(text: str, max_chars: int, suffix: str = "...") -> str:
     Returns:
         The original string, or a shortened version ending in ``suffix``. 
 
+    Examples:
+        >>> truncate("hello world", 8)
+        'hello...'
+
     Raises: 
         ValueError: If ``max_chars`` is not positive.
     """
@@ -41,3 +45,59 @@ def truncate(text: str, max_chars: int, suffix: str = "...") -> str:
         return suffix[:max_chars]
     return text[: max_chars - len(suffix)] + suffix
 
+
+def normalize_whitespace(text: str) -> str: 
+    """Collapse all runs of whitespace to single whitespace and strip leading/trailing whitespace.
+
+    Args:
+        text: Input string. Newlines and tabs count as whitespace.
+
+    Returns:
+        The text with every whitespace run reduced to one space, no leading or trailing whitespace.
+
+    Examples:
+        >>> normalize_whitespace("a\\n\\n b\\t\\tc ")
+        'a b c'
+    """
+    return " ".join(text.split())
+
+
+def chunk_text(text: str, size: int, overlap: int = 0) -> list[str]:
+    """Split ``text`` into character chunks of length ``size``.
+    Each chunk overlaps the previous one by ``overlap`` characters.
+
+    Args:
+        text: Input string. 
+        size: Chunk length in characters. Must be positive.
+        overlap: Number of characters each chunk shares with the previous chunk. Must be non-negative and strictly less than ``size``. 
+
+    Returns:
+        A list of character chunks. The last chunk may be shorter than ``size``.
+
+    Examples:
+        >>> chunk_text("abcdefghij", size=4, overlap=2). then step = size - overlap == 4-2 = 2
+        start = 0: text[0:4] = "abcd"
+        start = 2: text[2:6] = "cdef"
+        start = 4: text[4:8] = "efgh"
+        start = 6: text[6:10] = "ghij"
+        start = 8: text[8:12] = "ij" (slice past the end just stops)
+        start = 10: 10 < len(text)  which is 10 => false, loop ends; the condition is ``while start < len(text)``
+
+    Raises:
+        ValueError: If ``size <= 0``, ``overlap < 0`` or ``overlap >= size``.
+    """
+
+    if size <= 0:
+        raise ValueError(f"size must be positive, got {size}")
+    if overlap < 0:
+        raise ValueError(f"overlap must be non-negative, got {overlap}")
+    if overlap >= size: # to make sure step = size - overlap is positive, so that the loop will eventually terminate.
+        raise ValueError(f"overlap ({overlap}) must be less than the size ({size})")
+
+    step = size - overlap # how window moves forward for each chunk.
+    chunks: list[str] = []
+    start = 0
+    while start < len(text):
+        chunks.append(text[start : start + size]) 
+        start += step 
+    return chunks 
