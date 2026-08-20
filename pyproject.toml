@@ -14,6 +14,43 @@ dependencies = [
 [tool.uv.workspace]
 members = ["packages/*", "projects/*"]
 
+[dependency-groups]
+dev = [
+    "mypy>=2.3.0",
+    "pre-commit>=4.6.2",
+    "ruff>=0.16.2",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["packages/llmkit/src", "packages/llmkit/tests", "src"]
+extend-exclude = [".venv", "**/__pycache__", "**/.pytest_cache"]
+
+[tool.ruff.lint]
+select = [
+    "E", "W",   # pycodestyle — errors and warnings
+    "F",        # pyflakes — unused imports, undefined names
+    "I",        # isort — import ordering
+    "N",        # pep8-naming
+    "UP",       # pyupgrade — modernize old syntax
+    "B",        # bugbear — likely bugs, incl. mutable defaults
+    "SIM",      # simplify
+    "ARG",      # unused function arguments
+    "PTH",      # prefer pathlib over os.path
+    "RUF",      # ruff-specific rules
+]
+ignore = ["E501"]   # line length — the formatter owns this
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/*" = ["ARG"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["packages/llmkit/src", "packages/llmkit/tests"]
+mypy_path = ["packages/llmkit/src"]
+
 [tool.uv]
 package = false # the repo root itself isn't an installable package, it's a uv workspace
 link-mode = "copy" # developing on a remote compute, uv preferred hardlinking isn't allowed, uv has to copy, making installs a bit slower, but that's it.

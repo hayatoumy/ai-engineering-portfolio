@@ -149,7 +149,7 @@ activemq-data/
 # SageMath parsed files
 *.sage.py
 
-# Environments and Secrets 
+# Environments and Secrets
 .env
 .env.*
 .envrc
@@ -163,19 +163,19 @@ venv.bak/
 *.key
 credentials.json
 
-# Python 
+# Python
 __pycache__/
 *.py[cod]
 
 # Data & models (keep repos small)
-data/ 
+data/
 *.db
 *.sqlite3
 models/
 *.gguf
 *.safetensors
 
-# OS / editor 
+# OS / editor
 .DS_Store
 .vscode/settings.json
 
@@ -217,9 +217,9 @@ cython_debug/
 .abstra/
 
 # Visual Studio Code
-#   Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore 
+#   Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore
 #   that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
-#   and can be added to the global gitignore or merged into this file. However, if you prefer, 
+#   and can be added to the global gitignore or merged into this file. However, if you prefer,
 #   you could uncomment the following to ignore the entire vscode folder
 # .vscode/
 # Temporary file for partial code execution
