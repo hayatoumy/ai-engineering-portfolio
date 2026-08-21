@@ -65,43 +65,42 @@ def normalize_whitespace(text: str) -> str:
 
 def chunk_text(text: str, size: int, overlap: int = 0) -> list[str]:
     """Split ``text`` into character chunks of length ``size``.
+
     Each chunk overlaps the previous one by ``overlap`` characters.
 
     Args:
         text: Input string.
         size: Chunk length in characters. Must be positive.
-        overlap: Number of characters each chunk shares with the previous chunk. Must be non-negative and strictly less than ``size``.
+        overlap: Number of characters each chunk shares with the previous chunk.
+            Must be non-negative and strictly less than ``size``.
 
     Returns:
-        A list of character chunks. The last chunk may be shorter than ``size``.
+        A list of character chunks in order. Empty input returns an empty list.
+        The last chunk may be shorter than ``size``.
+
+    Raises:
+        ValueError: If ``size <= 0``, ``overlap < 0``, or ``overlap >= size``.
 
     Examples:
-
+        >>> chunk_text("abcdefghij", 4)
+        ['abcd', 'efgh', 'ij']
         >>> chunk_text("abcdefghij", size=4, overlap=2)
         ['abcd', 'cdef', 'efgh', 'ghij', 'ij']
 
     Note:
         ``step = size - overlap`` controls how far the window advances. With
-        size=4 and overlap=2, step=2, so windows start at 0, 2, 4, 6, 8 and the
-        loop ends when ``start >= len(text)``.
-
-    Raises:
-        ValueError: If ``size <= 0``, ``overlap < 0`` or ``overlap >= size``.
+        size=4 and overlap=2, step=2, so windows start at 0, 2, 4, 6, 8.
     """
-
     if size <= 0:
         raise ValueError(f"size must be positive, got {size}")
     if overlap < 0:
         raise ValueError(f"overlap must be non-negative, got {overlap}")
-    if (
-        overlap >= size
-    ):  # to make sure step = size - overlap is positive, so that the loop will eventually terminate.
+    if overlap >= size:
+        # Guarantees step > 0; range() also rejects a zero step outright.
         raise ValueError(f"overlap ({overlap}) must be less than the size ({size})")
 
-    step = size - overlap  # how window moves forward for each chunk.
-    chunks: list[str] = []
-    start = 0
-    while start < len(text):
-        chunks.append(text[start : start + size])
-        start += step
-    return chunks
+    if not text:
+        return []
+
+    step = size - overlap
+    return [text[i : i + size] for i in range(0, len(text), step)]
