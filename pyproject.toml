@@ -51,6 +51,17 @@ strict = true
 files = ["packages/llmkit/src", "packages/llmkit/tests"]
 mypy_path = ["packages/llmkit/src"]
 
+[tool.pytest.ini_options]
+testpaths = ["packages/llmkit/tests"]
+addopts = ["--strict-markers", "-m", "not live"]
+markers = [
+    "live: hits real APIs, costs money, needs credentials. Run with: pytest -m live",
+]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+
 [tool.uv]
 package = false # the repo root itself isn't an installable package, it's a uv workspace
 link-mode = "copy" # developing on a remote compute, uv preferred hardlinking isn't allowed, uv has to copy, making installs a bit slower, but that's it.

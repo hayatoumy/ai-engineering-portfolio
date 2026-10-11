@@ -4,24 +4,7 @@ import pytest
 
 from llmkit import Completer
 from llmkit.summarize import build_summary_prompt, summarize
-
-
-class FakeCompleter:
-    """A stand-in LLM. Records every prompt and returns a canned reply."""
-
-    def __init__(self, reply: str = "  a short summary  ") -> None:
-        self.reply = reply
-        self.prompts: list[str] = []
-
-    def complete(self, prompt: str) -> str:
-        self.prompts.append(prompt)
-        return self.reply
-
-
-@pytest.fixture
-def fake() -> FakeCompleter:
-    """A fresh FakeCompleter for each test."""
-    return FakeCompleter()
+from llmkit.testing import FakeCompleter
 
 
 ## --- the fake itself ---
