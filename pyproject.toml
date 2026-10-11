@@ -24,7 +24,7 @@ dev = [
 [tool.ruff]
 line-length = 100
 target-version = "py312"
-src = ["packages/llmkit/src", "packages/llmkit/tests", "src"]
+src = ["packages/llmkit/src", "packages/llmkit/tests"]
 extend-exclude = [".venv", "**/__pycache__", "**/.pytest_cache"]
 
 [tool.ruff.lint]
