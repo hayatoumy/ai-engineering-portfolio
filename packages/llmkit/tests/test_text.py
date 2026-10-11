@@ -6,82 +6,87 @@ from llmkit.text import chunk_text, normalize_whitespace, truncate, word_count
 
 
 ## --- word_count() tests ---
-def test_word_count_basic() -> None:
-    assert word_count("hello world") == 2
-
-
-def test_word_count_empty() -> None:
-    assert word_count("") == 0
-
-
-def test_word_count_extra_whitespace() -> None:
-    assert word_count("  a   b  ") == 2
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("hello world", 2),  # happy path
+        ("", 0),  # empty input
+        ("one", 1),  # single word
+        ("  a   b  ", 2),  # extra spaces
+        ("a\nb\tc", 3),  # newlines and tabs also separate words
+    ],
+)
+def test_word_count(text: str, expected: int) -> None:
+    assert word_count(text) == expected
 
 
 ## --- truncate() tests ---
-def test_truncate_no_change_when_short() -> None:
-    assert truncate("short", 20) == "short"
+@pytest.mark.parametrize(
+    ("text", "max_chars", "expected"),
+    [
+        ("short", 20, "short"),  # under the limit: unchanged
+        ("hello", 5, "hello"),  # exactly at the limit: unchanged
+        ("hello!", 5, "he..."),  # one past the limit: truncated
+        ("hello world", 8, "hello..."),  # happy path
+        ("hello", 2, ".."),  # limit shorter than the suffix: clipped suffix
+    ],
+)
+def test_truncate(text: str, max_chars: int, expected: str) -> None:
+    result = truncate(text, max_chars)
+    assert result == expected
+    assert len(result) <= max_chars  # the promise in the docstring
 
 
-def test_truncate_shortens_with_suffix() -> None:
-    result = truncate("hello world", 8)  # Arrange + Act: set up input, call function
-    assert result == "hello..."  # Assert: is it what we expect?
-    assert len(result) <= 8  # a second assert to check another property
+def test_truncate_custom_suffix() -> None:
+    assert truncate("hello world", 7, suffix="~") == "hello ~"
 
 
-def test_truncate_raises_on_bad_max() -> None:
-    with pytest.raises(ValueError):
-        truncate("anything", 0)
-
-
-def test_truncate_suffix_longer_than_max() -> (
-    None
-):  # when max_chars is smaller than the suffix, return a clipped suffix
-    assert truncate("hello", 2) == ".."
+@pytest.mark.parametrize("max_chars", [0, -1])
+def test_truncate_rejects_non_positive_max_chars(max_chars: int) -> None:
+    with pytest.raises(ValueError, match="max_chars must be positive"):
+        truncate("anything", max_chars)
 
 
 ## --- normalize_whitespace() tests ---
-def test_normalize_collapses_and_strips() -> None:  # happy path. general case.
-    assert normalize_whitespace("a\n\n b\t\tc ") == "a b c"
-
-
-def test_normalize_empty() -> None:  # edge case: empty string
-    assert normalize_whitespace("") == ""
-
-
-def test_normalize_only_whitespace() -> None:  # edge case: nothing but whitespace
-    assert normalize_whitespace("   \t\n  ") == ""
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("a\n\n b\t\tc ", "a b c"),  # happy path: collapse and strip
+        ("already clean", "already clean"),  # nothing to do
+        ("", ""),  # empty input
+        ("   \t\n  ", ""),  # only whitespace
+    ],
+)
+def test_normalize_whitespace(text: str, expected: str) -> None:
+    assert normalize_whitespace(text) == expected
 
 
 ## --- chunk_text() tests ---
-def test_chunk_no_overlap() -> None:  # happy path, general case, with default overlap=0
-    assert chunk_text("abcdefghij", 4) == ["abcd", "efgh", "ij"]
+@pytest.mark.parametrize(
+    ("text", "size", "overlap", "expected"),
+    [
+        ("abcdefghij", 4, 0, ["abcd", "efgh", "ij"]),  # happy path, no overlap
+        ("abcdefghij", 4, 2, ["abcd", "cdef", "efgh", "ghij", "ij"]),  # with overlap
+        ("abcd", 4, 0, ["abcd"]),  # exact fit
+        ("abc", 10, 0, ["abc"]),  # text shorter than one chunk
+        ("abc", 1, 0, ["a", "b", "c"]),  # smallest legal size
+        ("", 4, 0, []),  # empty input
+    ],
+)
+def test_chunk_text(text: str, size: int, overlap: int, expected: list[str]) -> None:
+    assert chunk_text(text, size, overlap) == expected
 
 
-def test_chunk_with_overlap() -> None:  # happy path, general case, with overlap=2
-    assert chunk_text("abcdefghij", 4, overlap=2) == ["abcd", "cdef", "efgh", "ghij", "ij"]
-
-
-def test_chunk_exact_fit() -> None:  # edge case: text length equals chunk size
-    assert chunk_text("abcd", 4) == ["abcd"]
-
-
-def test_chunk_empty() -> None:  # edge case: empty input string
-    assert chunk_text("", 4) == []
-
-
-def test_chunk_raises_on_bad_size() -> None:  # edge case: size <= overlap int. testing error bucket
-    with pytest.raises(ValueError):
-        chunk_text("abc", 0)
-
-
-def test_chunk_raises_when_overlap_too_big() -> (
-    None
-):  # edge case: overlap == size. testing error bucket
-    with pytest.raises(ValueError):
-        chunk_text("abc", 4, overlap=4)
-
-
-def test_chunk_raises_on_negative_overlap() -> None:  # edge case: overlap < 0. testing error bucket
-    with pytest.raises(ValueError):
-        chunk_text("abc", 4, overlap=-1)
+@pytest.mark.parametrize(
+    ("size", "overlap", "message"),
+    [
+        (0, 0, "size must be positive"),
+        (-1, 0, "size must be positive"),
+        (4, -1, "overlap must be non-negative"),
+        (4, 4, "must be less than the size"),  # overlap == size
+        (4, 5, "must be less than the size"),  # overlap > size
+    ],
+)
+def test_chunk_text_rejects_bad_arguments(size: int, overlap: int, message: str) -> None:
+    with pytest.raises(ValueError, match=message):
+        chunk_text("abc", size, overlap)
